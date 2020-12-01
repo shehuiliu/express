@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <button class="btn1">post按钮</button>
+    <button class="btn2">按钮</button>
+    <script>
+        $(function () {
+            $(".btn1").on("click", function () {
+                $.ajax({
+                    method: "post",
+                    url: "http://localhost:3000/api/user",
+                    data: {
+                        name: 'zs',
+                        age: 18
+                    },
+                    success: function (res) {
+                        console.log(res.data);
+                    }
+                })
+            })
+            $(".btn2").on("click", function () {
+                $.ajax({
+                    method: "get",
+                    url: "http://localhost:3000/api/text",
+                    data: {
+                        name: 'hahah',
+                        age: 18
+                    },
+                    success: function (res) {
+                        console.log(res.data);
+                    }
+                })
+            })
+
+        })
+    </script>
+</body>
+
+</html>
